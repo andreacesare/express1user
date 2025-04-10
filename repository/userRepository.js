@@ -48,6 +48,9 @@ class UserRepository {
         return User.update({email},{where:{id}});
     }
 
+    async updateUser(id,userData, transaction) {
+        return User.update(userData, { where: { id: id }, transaction });
+    }
 }
 const instance=new UserRepository();
 Object.freeze(instance);

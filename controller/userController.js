@@ -49,5 +49,23 @@ class UserController {
         await userService.updatePassword(id,password);
         res.status(200).json({message:'password updated successfully.'});
     }
+
+    async updateUser(req, res) {
+        const { id } = req.params;
+        const userData = req.body;
+
+        try {
+
+            const updatedUser = await userService.updateUser(userData,id);
+
+
+            res.status(200).json({ message: 'User updated successfully.', user: updatedUser });
+        } catch (error) {
+
+            res.status(500).json({ error: error.message });
+        }
+    }
+
+
 }
 module.exports= new UserController();

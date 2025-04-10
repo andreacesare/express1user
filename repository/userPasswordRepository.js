@@ -13,12 +13,12 @@ class UserPasswordRepository {
         }
         catch(error){
             console.log(error);
-            throw new Error("UserPassword creation failed");}
+            throw new Error("UserPassword creation failed",error);}
     }
 
-    async updatePassword(id,data){
+    async updatePassword(data,transaction){
         try {
-            const a=await userPassword.create(id,data);
+            const a=await userPassword.create(data,{transaction});
             console.log(a);
         }catch(error){
             console.log(error);

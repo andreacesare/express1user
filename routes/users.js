@@ -15,4 +15,6 @@ router.put("/updateEmail/:id",userController.updateEmail);
 
 router.put("/updatePassword/:id",userController.updatePassword);
 
+router.put("/updateUser/:id",userController.updateUser);
+
 module.exports = router;
