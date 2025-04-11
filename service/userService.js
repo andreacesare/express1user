@@ -117,6 +117,10 @@ class UserService {
         await userPasswordRepository.updatePassword({userId: id, password: hashedPassword});
     }
 
+    async deleteUser(id){
+        return await userRepository.deleteUser(id);
+    }
+
 
 }
 

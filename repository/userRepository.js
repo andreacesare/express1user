@@ -51,6 +51,11 @@ class UserRepository {
     async updateUser(id,userData, transaction) {
         return User.update(userData, { where: { id: id }, transaction });
     }
+
+    async deleteUser(id) {
+        return await User.destroy({where:{id}});
+    }
+
 }
 const instance=new UserRepository();
 Object.freeze(instance);
